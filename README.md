@@ -10,18 +10,18 @@ The library is for;
 
 #### save json
 
-```http
+```
   JsonFellow.save(json: json, withName: "fileName")
 ```
 
 | Parametre | Tip     | Açıklama                |
 | :-------- | :------- | :------------------------- |
 | `json` | `String` | json |
-| `json` | `String` | file name |
+| `withName` | `String` | file name |
 
 #### get data
 
-```http
+```
   JsonFellow.dataFrom("path", .locale)
 ```
 
@@ -31,7 +31,7 @@ The library is for;
 | `withType` | `PathType` | json path type (locale or document) |
 
 #### make object with data
-```http
+```
   JsonFellow.makeObject(Object.self, data)
 ```
 
@@ -42,7 +42,7 @@ The library is for;
 
 #### make object with path
 
-```http
+```
   JsonFellow.make(Object.self, "mockDataName")
 ```
 
