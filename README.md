@@ -14,7 +14,7 @@ The library is for;
   JsonFellow.save(json: json, withName: "fileName")
 ```
 
-| Parametre | Tip     | Açıklama                |
+| Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `json` | `String` | json |
 | `withName` | `String` | file name |
@@ -25,7 +25,7 @@ The library is for;
   JsonFellow.dataFrom("path", .locale)
 ```
 
-| Parametre | Tip     | Açıklama                       |
+| Parameter | Type     | Description                        |
 | :-------- | :------- | :-------------------------------- |
 | `path`     | `String`   | json path |
 | `withType` | `PathType` | json path type (locale or document) |
@@ -35,7 +35,7 @@ The library is for;
   JsonFellow.makeObject(Object.self, data)
 ```
 
-| Parametre | Tip     | Açıklama                       |
+| Parameter | Type     | Description                        |
 | :-------- | :------- | :-------------------------------- |
 | `object` | `T `   | expected object to return from data |
 | `data`   | `Data` | data which has expected object |
@@ -46,7 +46,7 @@ The library is for;
   JsonFellow.make(Object.self, "mockDataName")
 ```
 
-| Parametre | Tip     | Açıklama                       |
+| Parameter | Type     | Description                        |
 | :-------- | :------- | :-------------------------------- |
 | `object`   | `T `      | expected object to return from data |
 | `path`     | `String`  | data which has expected object |
