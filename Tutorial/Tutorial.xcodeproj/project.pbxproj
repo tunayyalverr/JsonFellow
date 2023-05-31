@@ -16,8 +16,8 @@
 		93B923FB290EBD460044C49E /* TutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B923FA290EBD460044C49E /* TutorialUITests.swift */; };
 		93B923FD290EBD460044C49E /* TutorialUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B923FC290EBD460044C49E /* TutorialUITestsLaunchTests.swift */; };
 		93B9240D290EBDDA0044C49E /* JsonFellow in Frameworks */ = {isa = PBXBuildFile; productRef = 93B9240C290EBDDA0044C49E /* JsonFellow */; };
-		93B92410290EBE910044C49E /* mockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 93B9240F290EBE910044C49E /* mockData.json */; };
 		93B92413290EFB730044C49E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B92412290EFB730044C49E /* UserModel.swift */; };
+		93E223842A261CA600834B44 /* mockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 93E223832A261CA600834B44 /* mockData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +50,8 @@
 		93B923F6290EBD450044C49E /* TutorialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TutorialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B923FA290EBD460044C49E /* TutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialUITests.swift; sourceTree = "<group>"; };
 		93B923FC290EBD460044C49E /* TutorialUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		93B9240F290EBE910044C49E /* mockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockData.json; sourceTree = "<group>"; };
 		93B92412290EFB730044C49E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		93E223832A261CA600834B44 /* mockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				93B92411290EFB630044C49E /* Models */,
-				93B9240E290EBE610044C49E /* Mock */,
+				93B9240E290EBE610044C49E /* Resources */,
 				93B923D9290EBD430044C49E /* AppDelegate.swift */,
 				93B923DD290EBD430044C49E /* ViewController.swift */,
 				93B923DF290EBD430044C49E /* Main.storyboard */,
@@ -132,12 +132,12 @@
 			path = TutorialUITests;
 			sourceTree = "<group>";
 		};
-		93B9240E290EBE610044C49E /* Mock */ = {
+		93B9240E290EBE610044C49E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				93B9240F290EBE910044C49E /* mockData.json */,
+				93E223832A261CA600834B44 /* mockData.json */,
 			);
-			path = Mock;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		93B92411290EFB630044C49E /* Models */ = {
@@ -259,7 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93B923E6290EBD450044C49E /* LaunchScreen.storyboard in Resources */,
-				93B92410290EBE910044C49E /* mockData.json in Resources */,
+				93E223842A261CA600834B44 /* mockData.json in Resources */,
 				93B923E3290EBD450044C49E /* Assets.xcassets in Resources */,
 				93B923E1290EBD430044C49E /* Main.storyboard in Resources */,
 			);

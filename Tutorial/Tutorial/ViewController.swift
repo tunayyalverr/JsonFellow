@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     func test() {
         let users = JsonFellow.make([User].self, "mockData")
-        print(users)
+        print(users ?? "")
     }
 }
 

@@ -9,7 +9,8 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "JsonFellow",
-            targets: ["JsonFellow"]),
+            targets: ["JsonFellow"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -20,9 +21,17 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "JsonFellow",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .copy("Resources/testMockData.json")
+            ]
+        ),
         .testTarget(
             name: "JsonFellowTests",
-            dependencies: ["JsonFellow"]),
+            dependencies: ["JsonFellow"],
+            resources: [
+                .copy("Resources/testMockData.json")
+            ]
+        )
     ]
 )
