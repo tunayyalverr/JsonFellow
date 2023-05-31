@@ -15,12 +15,12 @@ public final class JsonFellow  {
     // MARK: - Private
 
     // MARK: - Path
-    private static func jsonPath(_ path: String, _ withType: PathType) -> String? {
+    private static func jsonPath(_ path: String, _ withType: PathType, forBundle: Bundle = Bundle.main) -> String? {
         switch withType {
-        case .locale:
-            return Bundle.main.path(forResource: path, ofType: "json")
-        case .document:
-            return (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? "") + "/" + path + ".json"
+            case .locale:
+                return forBundle.path(forResource: path, ofType: "json")
+            case .document:
+                return (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? "") + "/" + path + ".json"
         }
     }
 
@@ -28,11 +28,11 @@ public final class JsonFellow  {
         return Bundle.main.path(forResource: path, ofType: "json")
     }
 
-    private static func filePath(_ name: String) -> String {
+    private static func filePath(_ name: String) -> String? {
         let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         let fileAtPath = filePath?.appendingFormat("/%@", name + ".json")
 
-        return fileAtPath!
+        return fileAtPath
     }
 
     // MARK: - Public
@@ -49,7 +49,7 @@ public final class JsonFellow  {
     ///     - pathType: json path type. Could be locally dropped to folders or saved to documents with save function. Default is locale.
     ///
     /// - Returns: Data for the given `path`.
-    public static func dataFrom(_ path: String, _ withType: PathType) -> Data? {
+    public static func dataFrom(_ path: String, _ withType: PathType, forBundle: Bundle = Bundle.main) -> Data? {
         guard let path = jsonPath(path, withType)
         else { return nil }
 
@@ -89,7 +89,7 @@ public final class JsonFellow  {
     ///     - pathType: json path type. Could be saved to documents or locally dropped to folders. Default is locale.
     ///
     /// - Returns: Object for the given `object`.
-    public static func make<T: Decodable>(_ object: T.Type, _ path: String, withType: PathType = .locale) -> T? {
+    public static func make<T: Decodable>(_ object: T.Type, _ path: String, withType: PathType = .locale, forBundle: Bundle = Bundle.main) -> T? {
         guard let data = dataFrom(path, withType),
               let object = T.decode(data)
         else { return nil }
@@ -113,16 +113,17 @@ public final class JsonFellow  {
     ///
     /// - Returns: Saves the given `json` to given `withName`.
     public static func save(json: String?, withName: String) {
-        let filePath = filePath(withName)
+        guard let json = json else { return debugPrint("❗️ error you cannot save when json is nil") }
+        guard let filePath = filePath(withName) else { return debugPrint("❗️ error getting path with filePath") }
 
         if !FileManager.default.fileExists(atPath: filePath) {
             FileManager.default.createFile(atPath: filePath, contents: nil, attributes: nil)
         }
 
         do {
-            try json?.write(toFile: filePath, atomically: true, encoding: .utf8)
+            try json.write(toFile: filePath, atomically: true, encoding: .utf8)
         } catch {
-            print("error writing to file to path: \(filePath)")
+            debugPrint("❗️ error writing file to path: \(filePath)")
         }
     }
 }
