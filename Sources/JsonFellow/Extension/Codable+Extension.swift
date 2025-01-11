@@ -25,13 +25,15 @@ public extension Encodable {
 }
 
 public extension Decodable {
-    static func decode(_ data: Data) -> Self? {
+    static func decode(_ data: Data?) -> Self? {
+        guard let data else { return nil }
         let decoder = JSONDecoder()
         decoder.dataDecodingStrategy = .deferredToData
         return try? decoder.decode(self, from: data)
     }
-
-    static func decode(_ data: String) -> Self? {
+    
+    static func decode(_ data: String?) -> Self? {
+        guard let data else { return nil }
         let decoder = JSONDecoder()
         decoder.dataDecodingStrategy = .deferredToData
         return try? decoder.decode(self, from: Data(data.utf8))
