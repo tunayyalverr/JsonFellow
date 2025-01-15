@@ -8,13 +8,13 @@
 import Foundation
 
 public extension Encodable {
-    func encode() -> Data? {
+    func encodeToData() -> Data? {
         let encoder = JSONEncoder()
         encoder.dataEncodingStrategy = .deferredToData
         return try? encoder.encode(self)
     }
 
-    func encode() -> String? {
+    func encodeToString() -> String? {
         let encoder = JSONEncoder()
         encoder.dataEncodingStrategy = .deferredToData
         if let jsonData = try? encoder.encode(self) {
