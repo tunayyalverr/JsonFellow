@@ -22,6 +22,11 @@ public extension Encodable {
         }
         return nil
     }
+    
+    func toDictionary() -> [String: Any]? {
+        guard let data = encodeToData() else { return nil }
+        return try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+    }
 }
 
 public extension Decodable {
